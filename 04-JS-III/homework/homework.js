@@ -125,19 +125,14 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
-  argx=arguments[0];
-  //for (let i = 1; i < arguments.length; i++) {
-  //  argx=argx*arguments[i];
-  //  return argx;
-  // }
-  if (arguments) {
-    for (let i = 1; i < arguments.length; i++) {
-    argx=argx*arguments[i];
-     return argx;
-    //return arguments;
-  }
+ if (arguments.length === 0) {
   return 0;
-}
+ }
+ var argx = arguments[0];
+ for (let i = 1; i < arguments.length; i++) {
+   argx = argx * arguments[i];
+ }
+ return argx;
 }
 
 
@@ -205,8 +200,32 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  var nuevosmeses = [];
+  for (let i = 0; i < array.length ; i++) {
+    if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
+      nuevosmeses.push(array[i]);  
+    }   
+    if (nuevosmeses.length===3) {
+      return nuevosmeses;    
+    }
+  }
+  return "No se encontraron los meses pedidos";
 }
-
+//if (array.includes("Enero") && array.includes("Marzo") && array.includes("Noviembre")) {
+//  nuevosmeses.push("Enero");
+//  nuevosmeses.push("Marzo");
+//  nuevosmeses.push("Noviembre");
+//  return nuevosmeses;
+//}
+//return "No se encontraron los meses pedidos"
+  // if (array.includes("Marzo") ) {
+   //   if (array.includes("Noviembre")){
+   //              nuevosmeses.push("Enero");
+   //              nuevosmeses.push("Marzo");
+   //              nuevosmeses.push("Noviembre");
+   //              return nuevosmeses
+   //   }
+   // }
 
 function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
@@ -230,6 +249,20 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
+  var cont = 0 ;
+  var numeros = [] ; 
+  for (let i = 1 ; i <= 10 ; i++) {
+     numero = numero + 2; 
+      cont = i ;
+       numeros.push(numero)
+       if (numero===cont){
+        break;
+       }
+  }
+  if (numero===cont) {
+    return "Se interrumpió la ejecución" ;
+  }
+  return numeros;
 }
 
 
@@ -240,6 +273,19 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+  var cont = 0 ;
+  var numeros = [] ; 
+  for (let i = 1 ; i <= 10 ; i++) {
+    if (i===5){
+      continue;
+     }
+     numero = numero + 2; 
+      cont = i ;
+       numeros.push(numero)
+ 
+  }
+
+  return numeros;
 }
 
 
